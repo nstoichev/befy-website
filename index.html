@@ -1,0 +1,493 @@
+<!doctypehtml>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+
+  <title>Kosher</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="css/images/favicon.ico" />
+  <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./new-styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    var staticJsonData = {
+      "2023-08-1": {
+        "temp": 18.44,
+        "mas": 46.2,
+        "hum": 100
+      },
+      "2023-08-2": {
+        "temp": 18.42,
+        "mas": 45.2,
+        "hum": 100
+      },
+      "2023-08-3": {
+        "temp": 18.40,
+        "mas": 44.2,
+        "hum": 97
+      },
+      "2023-08-4": {
+        "temp": 18.35,
+        "mas": 43.2,
+        "hum": 97
+      },
+      "2023-08-5": {
+        "temp": 18.30,
+        "mas": 42.2,
+        "hum": 96
+      },
+      "2023-08-6": {
+        "temp": 18.20,
+        "mas": 41.2,
+        "hum": 95
+      },
+      "2023-08-7": {
+        "temp": 18.02,
+        "mas": 42.2,
+        "hum": 95
+      },
+      "2023-08-8": {
+        "temp": 17.58,
+        "mas": 43.2,
+        "hum": 95
+      },
+      "2023-08-9": {
+        "temp": 17.55,
+        "mas": 44.2,
+        "hum": 100
+      },
+      "2023-08-10": {
+        "temp": 17.50,
+        "mas": 45.2,
+        "hum": 95
+      },
+      "2023-08-11": {
+        "temp": 18.00,
+        "mas": 46.2,
+        "hum": 95
+      },
+      "2023-08-12": {
+        "temp": 18.10,
+        "mas": 47.2,
+        "hum": 97
+      },
+      "2023-08-13": {
+        "temp": 18.24,
+        "mas": 48.2,
+        "hum": 98
+      },
+      "2023-08-14": {
+        "temp": 18.35,
+        "mas": 49.2,
+        "hum": 100
+      }
+    }
+  </script>
+
+  <div class="wrapper">
+    <header class="header">
+      <a href="#" class="logo">
+        <span class="logo__image">
+          <img src="./logo-small.png" alt="" />
+        </span>
+
+        <span class="logo__text">BeFy</span>
+      </a>
+
+      <nav class="nav">
+        <ul>
+          <li>
+            <a href="#" class="active">
+              <span class="icon">
+                <i class="fas fa-home fa-fw"></i>
+              </span>
+
+              <spn class="text">Dashboard</spn><!-- /.text -->
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <span class="icon">
+                <i class="fab fa-forumbee"></i>
+              </span>
+              Пчелини
+            </a>
+
+            <ul>
+              <li>
+                <a href="#">
+                  <span class="icon">
+                    <i class="fas fa-arrow-right"></i>
+                  </span>
+                  Пчелин 1</a>
+              </li>
+
+              <li>
+                <a href="#">
+                  <span class="icon">
+                    <i class="fas fa-arrow-right"></i>
+                  </span>
+                  Пчелин 2</a>
+              </li>
+
+              <li>
+                <a href="#">
+                  <span class="icon">
+                    <i class="fas fa-arrow-right"></i>
+                  </span>
+                  Пчелин 3</a>
+              </li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#">
+              <span class="icon">
+                <i class="fas fa-cog fa-fw"></i>
+              </span>
+
+              <span class="text">Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav><!-- /.nav -->
+    </header><!-- /.header -->
+
+    <div class="main">
+      <div class="tollbar">
+        <menu-toggle class="btn-menu" data-target=".header">
+          <i class="fas fa-bars"></i>
+        </menu-toggle>
+
+        <nav class="nav-access">
+          <ul>
+            <li>
+              <span>Logged in as: Borko</span>
+            </li>
+
+            <li>
+              <a href="#">
+                <span class="icon">
+                  <i class="fas fa-arrow-circle-right"></i>
+                </span>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </nav><!-- / .nav-access -->
+      </div><!-- / .tollbar -->
+
+      <div class="content">
+        <form action="/action_page.php" id="date-form">
+          <label for="birthday">Period:</label>
+          <input type="date" id="date-start" name="start" required>
+          <input type="date" id="date-end" name="end" required>
+          <input type="submit" value="Submit">
+        </form>
+
+        <div class="tabs">
+          <div class="tab active">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id aliquam, natus enim dolor voluptatem asperiores nulla quasi, non deleniti, facilis quia exercitationem odit. Libero nam consequatur sapiente at ab, numquam?</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dicta, laudantium, sapiente culpa quisquam assumenda? Veniam minima cum, itaque quasi omnis, facilis aliquam quis nobis autem, porro culpa perspiciatis, sed.</p>
+          </div><!-- /.tab -->
+
+          <div class="tab">
+            <div class="hive">
+              <div class="hive__head">
+                <h4 class="hive__name">
+                  Везна 1
+                </h4><!-- /.hive__name -->
+
+                <a href="#" class="hive__cta">
+                  <span class="text">Детайли</span>
+
+                  <span class="icon">
+                    <i class="fas fa-th-list"></i>
+                  </span>
+                </a><!-- /.hive__list-head -->
+              </div><!-- /.hive__head -->
+
+              <div class="hive__body">
+                <div class="hive__preview">
+                  <div class="hive__image">
+                    <img src="befi-logo.png" alt="" />
+                  </div><!-- /.hive__image -->
+
+                  <a href="#" class="hive__action">
+                    <span class="icon">
+                      <i class="fas fa-chart-line"></i>
+                    </span>
+
+                    <span class="text">Прираст на нектар</span>
+                  </a>
+                </div><!-- /.hive__preview -->
+
+                <div class="hive__content">
+                  <h5 class="hive__subtitle">
+                    Последни данни:
+                  </h5><!-- /.hive__subtitle -->
+
+                  <ul class="hive__list">
+                    <li>
+                      <div class="hive__list-head">
+                        <span class="icon">
+                          <i class="fas fa-weight-hanging"></i>
+                        </span>
+
+                        <span class="text">
+                          Маса
+                        </span>
+
+                        <span class="value">
+                          <strong>46.2</strong> kg
+                        </span>
+                      </div><!-- /.hive__list-head -->
+                    </li>
+
+                    <li>
+                      <details class="temp">
+                        <summary class="hive__list-head">
+                          <span class="icon">
+                            <i class="fas fa-thermometer-full"></i>
+                          </span>
+
+                          <span class="text">
+                            Температура
+                          </span>
+
+                          <span class="value">
+                            <strong>19.3</strong> &deg;C
+                          </span>
+                        </summary><!-- /.hive__list-head -->
+
+                        <hive-chart class="hive__list-chart" data-stat="temp">
+                          <canvas></canvas>
+                        </hive-chart><!-- /.hive__list-chart -->
+                      </details>
+                    </li>
+
+                    <li>
+                      <details class="hum">
+                        <summary class="hive__list-head">
+                          <span class="icon">
+                            <i class="fas fa-tint"></i>
+                          </span>
+
+                          <span class="text">
+                            Влажност
+                          </span>
+
+                          <span class="value">
+                            <strong>100</strong> %
+                          </span>
+                        </summary><!-- /.hive__list-head -->
+
+                        <hive-chart class="hive__list-chart" data-stat="hum">
+                          <canvas></canvas>
+                        </hive-chart><!-- /.hive__list-chart -->
+                      </details>
+                    </li>
+
+                    <li>
+                      <div class="hive__list-head">
+                        <span class="icon">
+                          <i class="fas fa-cloud"></i>
+                        </span>
+
+                        <span class="text">
+                          Атмосферно налягане
+                        </span>
+
+                        <span class="value">
+                          <strong>976.26</strong> hPa
+                        </span>
+                      </div><!-- /.hive__list-head -->
+                    </li>
+
+                    <li>
+                      <div class="hive__list-head">
+                        <span class="icon">
+                          <i class="fas fa-battery-full"></i>
+                        </span>
+
+                        <span class="text">
+                          Батерия
+                        </span>
+
+                        <span class="value">
+                          <strong>4.21</strong> V
+                        </span>
+                      </div><!-- /.hive__list-head -->
+                    </li>
+
+                    <li>
+                      <div class="hive__list-head">
+                        <span class="icon">
+                          <i class="fas fa-thermometer-full"></i>
+                        </span>
+
+                        <span class="text">
+                          Температура на сензор
+                        </span>
+
+                        <span class="value">
+                          <strong>18.44</strong> &deg;C
+                        </span>
+                      </div><!-- /.hive__list-head -->
+                    </li>
+                  </ul><!-- /.hive__list -->
+                </div><!-- /.hive__content -->
+              </div><!-- /.hive__body -->
+
+              <div class="hive__foot">
+                <div class="date">
+                  <span class="day">02.09</span> <span class="time">05:08</span>
+                </div><!-- /.date -->
+              </div><!-- /.hive__foot -->
+            </div><!-- /.hive -->
+          </div><!-- /.tab -->
+
+          <div class="tab">
+          </div><!-- /.tab -->
+        </div><!-- /.tabs -->
+      </div><!-- /.content -->
+    </div><!-- / .main -->
+  </div><!-- /.wrapper -->
+</body>
+</html>
+
+
+<script type="text/javascript">
+  (() => {
+    if (customElements.get('hive-chart')) {
+      return;
+    }
+
+    if (customElements.get('menu-toggle')) {
+      return;
+    }
+
+    class HiveChart extends HTMLElement {
+      constructor() {
+        super();
+        this.detailsElement = this.closest('details');
+        this.staticData = staticJsonData;
+        this.stat = this.dataset.stat;
+        this.ctx = this.querySelector('canvas').getContext('2d');
+        this.temperatureChart = null; // Reference to the chart instance
+      }
+
+      connectedCallback() {
+        // Add an event listener to the details element to detect when it's toggled
+        this.detailsElement.addEventListener('toggle', () => {
+          if (this.detailsElement.open) {
+            // If the details element is open, destroy existing chart if any and then initChart
+            if (this.temperatureChart) {
+              this.temperatureChart.destroy(); // Destroy existing chart
+            }
+            this.initChart();
+          }
+        });
+      }
+
+      initChart() {
+        // Extract data from the JSON
+        const dates = Object.keys(this.staticData);
+        const dataValues = Object.values(this.staticData);
+
+        // const tempValues = dataValues.map(item => item.temp);
+        const humValues = dataValues.map(item => item.hum);
+
+
+        const tempValues = dataValues.map(item => item[this.stat]);
+
+        // Chart
+        this.temperatureChart = new Chart(this.ctx, {
+          type: 'line',
+          data: {
+            labels: dates,
+            datasets: [
+              {
+                label: 'Temperature (°C)',
+                data: tempValues,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2,
+                pointRadius: 4,
+                pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+                fill: true
+              }
+            ]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: false
+              }
+            }
+          }
+        });
+      }
+    }
+
+    class MenuToggle extends HTMLElement {
+      constructor() {
+        super();
+        this.menu = document.querySelector(this.dataset.target);
+      }
+
+      connectedCallback() {
+        this.addEventListener('click', () => {
+          this.toggleMenu()
+        })
+      }
+
+      toggleMenu() {
+        if (this.menu != null) {
+          this.menu.classList.toggle('open');
+        };
+      }
+    }
+
+    customElements.define('hive-chart', HiveChart);
+
+    customElements.define('menu-toggle', MenuToggle);
+  })();
+
+
+
+
+</script>
+
+<script>
+  document.getElementById("date-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent form submission for this example
+
+    var startDate = new Date(document.getElementById("date-start").value);
+    var endDate = new Date(document.getElementById("date-end").value);
+
+    var datesArray = [];
+
+    // Loop through all dates between start and end dates
+    while (startDate <= endDate) {
+      const dayFormat = new Date(startDate)
+      // datesArray.push(dayFormat); // Clone the date to avoid reference issues
+      datesArray.push(startDate.toISOString().slice(0, 10)); // Format as YYYY-MM-DD
+      startDate.setDate(startDate.getDate() + 1); // Move to the next day
+    }
+
+    console.log("Dates Array:", datesArray);
+
+    // Now you can submit the form if needed
+    // document.getElementById("date-form").submit();
+  });
+</script>
