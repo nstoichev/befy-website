@@ -303,19 +303,31 @@ blockquote:last-child {
   max-width: 0;
 }
 
-.btn-menu {
-  cursor: pointer;
-  user-select: none;
-}
-
 .header.open {
   flex: 0 0 400px;
   max-width: 400px;
 }
 
+.btn-menu {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.header__inner {
+  width: 400px;
+  height: 100%;
+  border-right: 1px solid;
+}
+
 .main {
   flex: 1;
-  background-color: #eee;
+  background-color: #f5cc17;
   display: flex;
   flex-flow: column wrap;
   position: relative;
@@ -330,6 +342,12 @@ blockquote:last-child {
   margin: 5px 0;
 }
 
+.nav summary {
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav summary,
 .nav a {
   display: flex;
   flex-flow: row wrap;
@@ -341,10 +359,8 @@ blockquote:last-child {
   transition: all 0.3s;
 }
 
-.nav a .icon {
+.nav .icon {
   padding: 3px 0;
-  border-radius: 3px;
-  border: 1px solid;
   width: 20px;
   display: flex;
   display: flex;
@@ -353,8 +369,8 @@ blockquote:last-child {
   justify-content: center;
 }
 
-.nav a.active {
-  background-color: #eee;
+.nav .active {
+  background-color: #f5cc17;
 }
 
 .nav li li {
@@ -367,6 +383,8 @@ blockquote:last-child {
   align-items: center;
   justify-content: space-between;
   padding: 10px;
+  border-bottom: 1px solid;
+  width: 100%;
 }
 
 .nav-access ul {
@@ -419,7 +437,7 @@ blockquote:last-child {
 
 .hive__head {
   padding: 5px 10px;
-  background-color: #eee;
+  background-color: #f5cc17;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -439,6 +457,10 @@ blockquote:last-child {
   gap: 0 5px;
   cursor: pointer;
   user-select: none;
+
+  position: absolute;
+  top: 5px;
+  right: 10px;
 }
 
 .hive__list-chart {
@@ -452,14 +474,21 @@ blockquote:last-child {
   background-color: #fff;
 }
 
-.hive__body {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: flex-start;
+.hive__inner {
   padding: 10px;
   background-color: #fff;
   border-bottom: 1px solid #333;
   border-top: 1px solid #333;
+}
+
+.hive__details[open] + .hive__body {
+  display: none;
+}
+
+.hive__body {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
 }
 
 .hive__preview {
@@ -526,8 +555,15 @@ blockquote:last-child {
 
 .hive__foot {
   padding: 5px 10px;
-  background-color: #eee;
+  background-color: #f5cc17;
   text-align: right;
+}
+
+.hive__form {
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: #ccc;
 }
 
 /* ------------------------------------------------------------ *\
