@@ -1,7 +1,9 @@
-<!doctypehtml>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <title>Kosher</title>
 
@@ -482,7 +484,6 @@
 
 <script type="text/javascript">
   (() => {
-    // Menu toggle
     if (customElements.get('menu-toggle')) {
       return;
     }
@@ -507,7 +508,11 @@
     }
 
     customElements.define('menu-toggle', MenuToggle);
+  })();
+</script>
 
+<script type="text/javascript">
+  (() => {
     if (customElements.get('nav-menu')) {
       return;
     }
@@ -517,6 +522,7 @@
         super();
         this.triggers = this.querySelectorAll('[data-tab]');
         this.activeClas = 'active'
+        this.header = this.closest('.header');
       }
 
       connectedCallback() {
@@ -534,14 +540,19 @@
       toggleTabs(tabTrigger) {
         const datTarget = tabTrigger.dataset.tab;
 
+        // Close the header menu only if the trigger is not SUMMARY tag.
+        if (tabTrigger.tagName != 'SUMMARY') {
+          setTimeout(() => {
+            this.header.classList.remove('open');
+          }, 300);
+        };
+
         this.triggers.forEach(itemTrigger => {
           itemTrigger.classList.remove(this.activeClas);
           const siblingDatTarget = itemTrigger.dataset.tab;
 
           if (siblingDatTarget.length) {
             const siblingTargetTab = document.querySelector(siblingDatTarget);
-
-
 
             if (siblingTargetTab != null) {
               siblingTargetTab.classList.remove(this.activeClas);
