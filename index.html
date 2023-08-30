@@ -167,13 +167,15 @@
   <div class="wrapper">
     <header class="header">
       <div class="header__inner">
-        <a href="#" class="logo">
-          <span class="logo__image">
-            <img src="./logo-small.png" alt="" />
-          </span>
+        <div class="header__logo">
+          <a href="#" class="logo">
+            <span class="logo__image">
+              <img src="./logo-small.png" alt="" />
+            </span>
 
-          <span class="logo__text">BeFy</span>
-        </a>
+            <span class="logo__text">BeFy</span>
+          </a>
+        </div><!-- /.header__logo -->
 
         <nav-menu>
           <nav class="nav">
@@ -605,6 +607,14 @@
           const period = this.renderData();
 
           this.initChart(period);
+
+          window.addEventListener("resize", (event) => {
+            this.chartInstances.forEach(chartInstance => {
+              chartInstance.destroy();
+            });
+
+            this.initChart(period);
+          });
         });
       }
 
