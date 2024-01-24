@@ -259,6 +259,10 @@ blockquote:last-child {
   margin-bottom: 0;
 }
 
+svg > * {
+  pointer-events: none;
+}
+
 /* ------------------------------------------------------------ *\
   Logo
 \* ------------------------------------------------------------ */
@@ -434,13 +438,24 @@ blockquote:last-child {
   overflow: hidden;
 }
 
+.hive:not(:first-child) {
+  margin-top: 30px;
+}
+
 .hive .icon {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
-  width: 20px;
+  /*width: 20px;*/
   color: inherit;
+}
+
+.hive .icon svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  width: 53px;
 }
 
 .hive__head {
@@ -471,6 +486,72 @@ blockquote:last-child {
   right: 10px;
 }
 
+.hive__actions {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+  width: 360px;
+}
+
+.hive__button {
+  border: none;
+  background-color: transparent;
+  position: relative;
+  height: 30px;
+}
+
+.hive__button svg {
+  display: block;
+  width: 65px;
+  height: auto;
+}
+
+.hive__button svg:first-child polygon {
+  fill: #ffffff;
+  stroke: #1d1d1b;
+  stroke-width: 2.3172;
+  stroke-miterlimit: 10;
+}
+
+.hive__button svg:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.hive__button svg:nth-child(2) .st0-hov {
+  opacity: 0.75;
+}
+
+.hive__button svg:nth-child(2) .st1-hov {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 3.1611;
+  stroke-miterlimit: 10;
+}
+
+.hive__button svg:nth-child(2) .st2-hov {
+  fill: #f89f1e;
+}
+
+.hive__button svg:nth-child(2) .st3-hov {
+  fill: none;
+  stroke: #1d1d1b;
+  stroke-width: 3.1611;
+  stroke-miterlimit: 10;
+}
+
+.hive__button.active svg:nth-child(2),
+.hive__button:focus svg:nth-child(2) {
+  opacity: 1;
+  visibility: visible;
+}
+
 .hive__chart canvas {
   width: 100% !important;
   height: auto !important;
@@ -490,7 +571,6 @@ blockquote:last-child {
 .hive__inner {
   padding: 10px;
   background-color: #fff;
-  border-bottom: 1px solid #333;
   border-top: 1px solid #333;
 }
 
@@ -502,21 +582,64 @@ blockquote:last-child {
   display: flex;
   flex-flow: row wrap;
   align-items: flex-start;
+  /*align-items: center; */
 }
 
 .hive__preview {
-  width: 20%;
-  flex: 0 0 20%;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;
 }
 
-.hive__image {
-  max-width: 200px;
-  margin-bottom: 20px;
+.hive__image svg {
+  width: 360px;
 }
+
+.hive__image svg * {
+  pointer-events: none;
+}
+
+/* START Hive coloing */
+.hive__image svg .st0-hive {
+  fill: #ffffff;
+  stroke: #9f9f9f;
+  stroke-width: 3.08;
+  stroke-miterlimit: 10;
+}
+
+.hive__image svg .st1-hive {
+  fill: #9f9f9f;
+}
+
+.hive__image svg .st2-hive {
+  clip-path: url(#SVGID_00000103252484637686052130000012858453888627947930_);
+}
+
+.hive__image svg .st3-hive {
+  fill: #f6cc1a;
+}
+
+.hive__image svg .st4-hive {
+  fill: url(#SVGID_00000091702094760103107510000015795675399699268250_);
+  stroke: #9f9f9f;
+  stroke-width: 1.232;
+  stroke-miterlimit: 10;
+}
+
+.hive__image svg .st5-hive {
+  clip-path: url(#SVGID_00000010275849120691600190000009809999605538366380_);
+}
+
+.hive__image svg .st6-hive {
+  fill: #fcb433;
+}
+
+.hive__image svg .st7-hive {
+  clip-path: url(#SVGID_00000164508621864104028330000006943643477253741461_);
+}
+
+/* END Hive coloing */
 
 .hive__action {
   display: inline-flex;
@@ -530,22 +653,26 @@ blockquote:last-child {
 }
 
 .hive__content {
-  padding-left: 30px;
   flex: 1;
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .hive__subtitle {
   font-weight: 700;
   font-size: 16px;
-  border-bottom: 1px solid;
   padding: 5px 0;
 }
 
 .hive__list {
   list-style: none;
   list-style-position: outside;
+  margin-top: 30px;
+}
+
+.hive__list li {
+  font-size: 30px;
+  font-weight: 300;
 }
 
 .hive__list-head {
@@ -553,13 +680,16 @@ blockquote:last-child {
   flex-flow: row wrap;
   align-items: center;
   gap: 0 10px;
-  padding: 5px 0;
+  padding: 5px 5px 5px 0;
   cursor: pointer;
   user-select: none;
+  border-radius: 5px;
+  border: 1px solid;
+  margin-bottom: 10px;
 }
 
-.hive__list li:not(:last-child) {
-  border-bottom: 1px solid;
+details[open] .hive__list-head {
+  background-color: #fdb434;
 }
 
 .hive__list li .text {
@@ -582,6 +712,11 @@ blockquote:last-child {
 /* ------------------------------------------------------------ *\
   Tabs
 \* ------------------------------------------------------------ */
+
+.tabs {
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
 .tab:not(.active) {
   display: none;
@@ -624,4 +759,66 @@ blockquote:last-child {
   .hive__action .text {
     display: none;
   }
+}
+
+/* ------------------------------------------------------------ *\
+  Login
+\* ------------------------------------------------------------ */
+
+.login {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.login form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 500px;
+}
+
+.login label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.login input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.login button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.login button:hover {
+  background-color: #45a049;
+}
+
+@keyframes colorChange {
+  0% {
+    fill: #fcb433; /* Starting color (e.g., red) */
+  }
+  50% {
+    fill: #e8a630; /* Middle color (e.g., green) */
+  }
+  100% {
+    fill: #fcb433; /* Ending color (same as starting for a smooth loop) */
+  }
+}
+
+.st6-hive.animating {
+  animation: colorChange 4s linear infinite; /* Adjust the duration and timing function as needed */
 }
